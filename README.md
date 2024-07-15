@@ -1,1 +1,0 @@
-# kztakemoto.github.io
