@@ -3,26 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0 auto;
-            max-width: 800px;
-            padding: 20px;
-        }
-        .invited-talk {
-            color: #4a4a4a;
-            margin-right: 5px;
-        }
-        .title {
-            font-weight: bold;
-        }
-    </style>
+    <title>Kazuhiro Takemoto</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    test
+    <header>
+        <img src="profile.jpg" alt="Kazuhiro Takemoto's Photo" class="profile-img">
+        <h1>Kazuhiro Takemoto</h1>
+        <p>Professor | Network Science | AI | Bioinformatics</p>
+        <div class="social-icons">
+            <a href="mailto:takemoto[at]bio.kyutech.ac.jp" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://orcid.org/0000-0002-6355-1366" target="_blank" title="ORCID"><i class="fab fa-orcid"></i></a>
+            <a href="https://www.linkedin.com/in/ktakemoto/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/kztakemoto" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://x.com/kztakemoto" target="_blank" title="X (Twitter)"><i class="fab fa-twitter"></i></a>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <span class="menu-icon" onclick="toggleMenu()">☰</span>
+            <ul id="menu">
+                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="#research"><i class="fas fa-laptop-code"></i> Research</a></li>
+                <li><a href="publications.html"><i class="fas fa-book"></i> Publications</a></li>
+                <li><a href="presentations.html"><i class="fas fa-microphone"></i> Presentations</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <section id="home">
+            <h2>Welcome</h2>
+            <p>Hello, I'm Kazuhiro Takemoto (竹本和広), a professor at Kyushu Institute of Technology in Japan. My research focuses on developing novel computational methods in network science and AI with applications to cutting-edge challenges in biomedical, environmental, and social sciences.</p>
+        </section>
+
+        <section id="research">
+            <h2><a name="#research">Current Research</a></h2>
+            <ul>
+                <li><a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.106.014301" target="_blank">Whispered algorithms: Steering social network dynamics</a></li>
+                <li><a href="https://doi.org/10.1098/rsos.231393" target="_blank">Moral code of AI: Whom does the AI choose to leave to die?</a></li>
+                <li><a href="https://doi.org/10.1186/s12880-020-00530-y" target="_blank">AI's Achilles heel: Probing and protecting healthcare models</a></li>
+            </ul>
+        </section>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("menu");
+            menu.classList.toggle("show");
+        }
+    </script>
 </body>
 </html>
