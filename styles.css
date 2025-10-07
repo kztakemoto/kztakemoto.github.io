@@ -1,248 +1,375 @@
 :root {
     --primary-color: #3498db;
-    --primary-color-light: #7fc4fd;
-    --primary-color-dark: #8e44ad;
+    --primary-color-light: #5dade2;
+    --primary-color-dark: #2980b9;
     --bg-color: #ffffff;
-    --text-color: #333333;
-    --text-light: #666666;
-    --border-color: #eeeeee;
-    --accent-color: #f5f9fc;
-    --transition: all 0.3s ease;
-  }
-  
-  body {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
+    --bg-secondary: #fafbfc;
+    --text-color: #2c3e50;
+    --text-light: #7f8c8d;
+    --border-color: #e8ecef;
+    --accent-color: #f8f9fa;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.7;
     color: var(--text-color);
     margin: 0;
     padding: 0;
-    background-color: var(--bg-color);
-  }
-  
-  .container {
+    background-color: var(--bg-secondary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
     width: 90%;
     max-width: 800px;
     margin: auto;
-    padding: 10px;
-  }
-  
-  header {
+    padding: 20px 10px;
+}
+
+header {
     background: var(--bg-color);
-    padding: 1rem 0;
+    padding: 2rem 0 1.5rem;
     text-align: center;
     border-bottom: 1px solid var(--border-color);
-  }
-  
-  .profile-img {
+    box-shadow: var(--shadow-sm);
+}
+
+.profile-img {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     margin: 10px auto;
     display: block;
-    border: none;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--bg-color);
+    box-shadow: var(--shadow-md);
     transition: var(--transition);
-  }
-  
-  .profile-img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-  }
-  
-  /* ナビゲーションのスタイル */
-  nav {
+    object-fit: cover;
+}
+
+.profile-img:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+nav {
     background: var(--bg-color);
-    padding: 0.5rem 0;
+    padding: 0.8rem 0;
     border-bottom: 1px solid var(--border-color);
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-    position: relative;
-  }
-  
-  nav ul {
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px);
+}
+
+nav ul {
     padding: 0;
     list-style: none;
     margin: 0;
     display: inline-block;
-  }
-  
-  nav ul li {
+}
+
+nav ul li {
     display: inline;
-    margin-right: 15px;
-  }
-  
-  nav ul li a, nav a {
+    margin-right: 0;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav ul li a, nav a {
     color: var(--text-light);
     text-decoration: none;
-    font-weight: 500; /* 元のフォントウェイト */
+    font-weight: 500;
     transition: var(--transition);
-    font-size: 1rem;
-    letter-spacing: 0.2px;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
     display: inline-flex;
     align-items: center;
-    padding: 3px 0;
+    padding: 5px 8px;
     position: relative;
-  }
-  
-  nav ul li a i {
-    margin-right: 5px;
-    font-size: 1rem; /* アイコンサイズも合わせて調整 */
-  }
-  
-  nav ul li a:hover, nav a:hover {
+    border-radius: var(--radius-sm);
+}
+
+nav ul li a i {
+    margin-right: 6px;
+    font-size: 1rem;
+}
+
+nav ul li a:hover, nav a:hover {
     color: var(--primary-color);
-  }
-  
-  /* オプション：ホバー時の微妙な下線 */
-  nav ul li a:after {
+    background-color: var(--accent-color);
+}
+
+nav ul li a:after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: 2px;
+    left: 8px;
     width: 0;
-    height: 1px;
+    height: 2px;
     background: var(--primary-color);
     transition: var(--transition);
-    opacity: 0.7;
-  }
-  
-  nav ul li a:hover:after {
-    width: 100%;
-  }
-  
-  .menu-icon {
+    border-radius: 2px;
+}
+
+nav ul li a:hover:after {
+    width: calc(100% - 16px);
+}
+
+.menu-icon {
     display: none;
     font-size: 24px;
     cursor: pointer;
     color: var(--text-light);
     transition: var(--transition);
-  }
-  
-  .menu-icon:hover {
+    padding: 8px;
+    border-radius: var(--radius-sm);
+}
+
+.menu-icon:hover {
     color: var(--primary-color);
-  }
-  
-  h1 {
+    background-color: var(--accent-color);
+}
+
+h1 {
     color: var(--text-color);
-    margin: 10px 0;
+    margin: 15px 0 8px;
     font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: -0.5px;
+    line-height: 1.3;
+}
+
+h2 {
+    color: var(--text-color);
+    margin: 20px 0 12px;
+    font-weight: 600;
+    font-size: 1.5rem;
     letter-spacing: -0.3px;
-  }
-  
-  h2 {
+    line-height: 1.4;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+h3 {
     color: var(--text-color);
-    margin: 15px 0 10px;
-    font-weight: 500;
+    margin: 18px 0 10px;
+    font-weight: 600;
+    font-size: 1.15rem;
     letter-spacing: -0.2px;
-  }
-  
-  h3 {
+}
+
+h4 {
     color: var(--text-color);
-    margin: 15px 0 10px;
+    margin: 15px 0 8px;
     font-weight: 500;
-  }
-  
-  h4 {
-    color: var(--text-color);
-    margin: 15px 0 10px;
-    font-weight: 500;
-  }
-  
-  p {
-    margin: 0 0 10px;
-  }
-  
-  section {
-    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+p {
+    margin: 0 0 12px;
+    line-height: 1.8;
+}
+
+section {
+    margin-bottom: 2rem;
     background: var(--bg-color);
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border-color);
-  }
-  
-  /* リスト装飾はナビゲーション以外に適用 */
-  ul:not(nav ul) {
-    margin: 0;
-    padding-left: 20px;
-  }
-  
-  li {
-    margin-bottom: 6px;
-  }
-  
-  .social-icons {
-    margin-top: 10px;
-  }
-  
-  .social-icons a {
+    padding: 1.8rem 1.5rem;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+section:hover {
+    box-shadow: var(--shadow-md);
+}
+
+ul:not(nav ul) {
+    margin: 0 0 12px;
+    padding-left: 22px;
+}
+
+li {
+    margin-bottom: 8px;
+    line-height: 1.7;
+}
+
+.social-icons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons a {
     color: var(--text-light);
     font-size: 1.5rem;
-    margin: 0 10px;
     transition: var(--transition);
-  }
-  
-  .social-icons a:hover {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+}
+
+.social-icons a:hover {
     color: var(--primary-color);
-    transform: translateY(-2px);
-  }
-  
-  /* タイトルのスタイル */
-  .title, a .title {
-    font-weight: 500;
+    background-color: var(--border-color);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.title, a .title {
+    font-weight: 600;
     display: inline;
-  }
-  
-  /* リンク内のタイトルクラス */
-  a .title {
+    color: var(--text-color);
+}
+
+a .title {
     color: var(--primary-color);
-  }
-  
-  a:hover .title {
+    transition: var(--transition);
+}
+
+a:hover .title {
     color: var(--primary-color-dark);
-  }
-  
-  /* 通常のリンクスタイル */
-  a[href]:not([class]):not(nav *):not(.social-icons *) {
+}
+
+a[href]:not([class]):not(nav *):not(.social-icons *) {
     color: var(--primary-color);
     text-decoration: none;
     transition: var(--transition);
-  }
-  
-  a[href]:not([class]):not(nav *):not(.social-icons *):hover {
+    border-bottom: 1px solid transparent;
+}
+
+a[href]:not([class]):not(nav *):not(.social-icons *):hover {
     color: var(--primary-color-dark);
-  }
-  
-  a[href]:not([class]):not(nav *):not(.social-icons *):visited {
+    border-bottom-color: var(--primary-color-light);
+}
+
+a[href]:not([class]):not(nav *):not(.social-icons *):visited {
     color: var(--primary-color-dark);
-  }
-  
-  .supplementary {
-    font-size: 0.8em;
+}
+
+.supplementary {
+    font-size: 0.85em;
     display: block;
     color: var(--text-light);
-  }
-  
-  @media (max-width: 768px) {
+    margin-top: 4px;
+    line-height: 1.5;
+}
+
+@media (max-width: 768px) {
     .container {
-      width: 95%;
+        width: 95%;
+        padding: 15px 10px;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    h2 {
+        font-size: 1.35rem;
+    }
+    
+    section {
+        padding: 1.5rem 1.2rem;
+        margin-bottom: 1.5rem;
     }
     
     nav ul {
-      display: none;
+        display: none;
     }
     
     nav ul.show {
-      display: block;
-      margin-top: 10px;
+        display: block;
+        margin-top: 10px;
     }
     
     nav ul li {
-      display: block;
-      margin: 5px 0;
-      text-align: center;
+        display: block;
+        margin: 8px 0;
+        text-align: center;
     }
     
     .menu-icon {
-      display: block;
-      text-align: center;
+        display: block;
+        text-align: center;
     }
-  }
+}
+
+.section-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 16px;
+    margin: 20px 0;
+    padding: 16px;
+    background-color: var(--accent-color);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+
+.section-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 12px;
+    margin: 16px 0 24px;
+    padding: 0;
+}
+
+.section-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px 12px;
+    margin: 0px 0px 20px;
+    padding: 0;
+}
+
+.section-nav a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 400;
+    padding: 4px 4px;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.section-nav a:hover {
+    color: var(--primary-color);
+}
+
+.section-nav a:not(:last-child)::after {
+    content: '|';
+    color: var(--border-color);
+    margin-left: 6px;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
