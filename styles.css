@@ -361,7 +361,6 @@ a[href]:not([class]):not(nav *):not(.social-icons *):visited {
 }
 
 .section-nav a:not(:last-child)::after {
-    content: '|';
     color: var(--border-color);
     margin-left: 6px;
     pointer-events: none;
