@@ -351,7 +351,7 @@ a[href]:not([class]):not(nav *):not(.social-icons *):visited {
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 400;
-    padding: 4px 4px;
+    padding: 4px 8px;
     transition: var(--transition);
     white-space: nowrap;
 }
@@ -361,7 +361,6 @@ a[href]:not([class]):not(nav *):not(.social-icons *):visited {
 }
 
 .section-nav a:not(:last-child)::after {
-    color: var(--border-color);
     margin-left: 6px;
     pointer-events: none;
 }
