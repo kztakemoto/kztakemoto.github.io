@@ -82,4 +82,52 @@
         const currentMode = savedTheme === 'dark' ? 'ダークモード' : 'ライトモード';
         toggleButton.setAttribute('title', `ライト/ダークモード切り替え (Ctrl+Shift+D) - 現在: ${currentMode}`);
     });
+    
+    // --- Mobile nav menu toggle ---
+    document.addEventListener('DOMContentLoaded', function() {
+        const menu = document.getElementById('menu');
+        const icon = document.querySelector('.menu-icon');
+        
+        if (!menu || !icon) return;
+        
+        function openMenu() {
+            menu.classList.add('show');
+            icon.setAttribute('aria-expanded', 'true');
+        }
+        
+        function closeMenu() {
+            menu.classList.remove('show');
+            icon.setAttribute('aria-expanded', 'false');
+        }
+        
+        function toggleMenu() {
+            if (menu.classList.contains('show')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        }
+        
+        // Keep working with existing onclick="toggleMenu()" in HTML,
+        // and also bind directly here so the inline attribute can be removed later.
+        window.toggleMenu = toggleMenu;
+        icon.addEventListener('click', toggleMenu);
+        
+        // Close when tapping outside the menu
+        document.addEventListener('click', function(e) {
+            if (menu.classList.contains('show') && !menu.contains(e.target) && !icon.contains(e.target)) {
+                closeMenu();
+            }
+        });
+        
+        // Close when a menu link is clicked (mobile UX)
+        menu.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+        
+        // Close on Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeMenu();
+        });
+    });
 })();

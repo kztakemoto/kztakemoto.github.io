@@ -24,15 +24,20 @@
 
     <nav>
         <div class="container">
-            <span class="menu-icon" onclick="toggleMenu()">☰</span>
-            <ul id="menu">
-                <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
-                <li><a href="https://sites.google.com/view/takemotolab/"><i class="fas fa-users"></i> Group</a></li>
-                <li><a href="#research"><i class="fas fa-laptop-code"></i> Research</a></li>
-                <li><a href="publications.html"><i class="fas fa-book"></i> Publications</a></li>
-                <li><a href="presentations.html"><i class="fas fa-microphone"></i> Presentations</a></li>
-            </ul>
+            <div class="nav-inner">
+                <span class="menu-icon" role="button" tabindex="0"
+                    aria-label="メニューを開閉" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </span>
+                <ul id="menu">
+                    <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+                    <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="https://sites.google.com/view/takemotolab/"><i class="fas fa-users"></i> Group</a></li>
+                    <li><a href="#research"><i class="fas fa-laptop-code"></i> Research</a></li>
+                    <li><a href="publications.html"><i class="fas fa-book"></i> Publications</a></li>
+                    <li><a href="presentations.html"><i class="fas fa-microphone"></i> Presentations</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -52,13 +57,6 @@
         </section>
     </div>
 
-    <script>
-        function toggleMenu() {
-            var menu = document.getElementById("menu");
-            menu.classList.toggle("show");
-        }
-    </script>
-
-    <script src="theme-toggle.js"></script>
+    <script src="ui.js"></script>
 </body>
 </html>
